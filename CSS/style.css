@@ -1,0 +1,46 @@
+/* Estilos generales */
+body {
+    text-align: center;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header {
+    background-color: #2c3e50;
+    color: #ecf0f1;
+    text-align: center;
+    padding: 20px;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Contenedor para los botones */
+.btn-container {
+    display: flex;
+}
+
+/* Estilos para los botones */
+.btn {
+    display: inline-block;
+    padding: 15px 50px;
+    background-color: #3498db;
+    color: #fff;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    margin: 50px 10px 10px; /* Margen superior de 50px, otros márgenes de 10px */
+}
+
+.btn:hover {
+    background-color: #2980b9;
+}
