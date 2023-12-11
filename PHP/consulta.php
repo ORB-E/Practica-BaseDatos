@@ -9,7 +9,7 @@ session_start();
 $usuario = $_SESSION['username'];
 
 // Verificar si el usuario está autenticado
-if ($_SESSION['logueado'] === false ) {
+if ($_SESSION['logueado'] === false) {
     // Redirigir al usuario a la página de inicio de sesión si no está autenticado
     header("Location: index.php");
     exit();
@@ -18,7 +18,7 @@ if ($_SESSION['logueado'] === false ) {
 // Consultar todas las tareas del usuario actual ordenadas por fecha de vencimiento
 $sql = "SELECT * FROM Tareas WHERE Usuario_ID = (
     SELECT id FROM Usuarios WHERE Username = ?
-) ORDER BY Fecha_Vencimiento;";
+) ORDER BY Completado ASC, Fecha_Vencimiento;";
 
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("s", $usuario);
@@ -139,6 +139,7 @@ $conn->close();
                     <th class="desc"> DESCRIPCION </th>
                     <th> COMPLETADO </th>
                     <th> FECHA_VENCIMIENTO </th>
+                    <th>FUNCIONES</th>
                 </tr>
                 <!-- Iterar sobre cada tarea y mostrarla en una fila de la tabla -->
                 <?php while ($row = mysqli_fetch_assoc($lista)) { ?>
@@ -158,6 +159,8 @@ $conn->close();
                         <td>
                             <?php echo $row['Fecha_Vencimiento']; ?>
                         </td>
+
+                        <td><a href="editar.php?id=<?php echo $row['id']; ?>" class="btn-footer">EDITAR TAREA</a></td>
                     </tr>
                 <?php } ?>
             </table>

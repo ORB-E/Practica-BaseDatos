@@ -9,6 +9,13 @@ if (!isset($_SESSION['logueado'])) {
     exit();
 }
 
+// Verificar si el usuario está autenticado
+if ($_SESSION['logueado'] === false) {
+    // Redirigir al usuario a la página de inicio de sesión si no está autenticado
+    header("Location: index.php");
+    exit();
+}
+
 // Obtener el ID del usuario autenticado
 $usuario = $_SESSION['username'];
 $stmt_get_user_id = $conn->prepare("SELECT id FROM Usuarios WHERE Username = ?");

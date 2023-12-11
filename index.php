@@ -34,8 +34,5 @@
 
     <!-- Enlace para insertar nuevos datos -->
     <a href="./PHP/insertar.php" class="btn">Insertar</a> <br>
-
-    <!-- Enlace para editar datos existentes -->
-    <a href="./PHP/editar.php" class="btn">Editar</a>
 </body>
 </html>
